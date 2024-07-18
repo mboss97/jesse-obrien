@@ -1,70 +1,96 @@
 import * as React from "react"
 import '../assets/scss/main.scss'
-import Project1 from '../../images/project-1.jpg'
-import Project2 from '../../images/project-2.jpg'
-import Project3 from '../../images/project-3.jpg'
-import Project4 from '../../images/project-4.png'
-import Project5 from '../../images/project-5.png'
-import Project6 from '../../images/project-6.jpg'
-import Project7 from '../../images/project-7.jpg'
-import Project8 from '../../images/project-8.png'
-import Project9 from '../../images/project-9.jpg'
-import Project10 from '../../images/project-10.jpg'
-import Project11 from '../../images/project-11.jpg'
-import Project12 from '../../images/project-12.png'
-import Project13 from '../../images/project-13.jpg'
-import Project14 from '../../images/project-14.png'
-import Project15 from '../../images/project-15.jpg'
-import Project16 from '../../images/project-16.png'
-import Project17 from '../../images/project-17.jpg'
-import Project18 from '../../images/project-18.jpg'
-import Project19 from '../../images/project-19.jpg'
-import Project20 from '../../images/project-20.jpg'
-import Project21 from '../../images/project-21.jpg'
-import Project22 from '../../images/project-22.jpg'
-import Project23 from '../../images/project-23.jpg'
-import Project24 from '../../images/project-24.jpg'
-import Project25 from '../../images/project-25.jpg'
+import Project1 from '../assets/images/project-1.jpg'
+import Project2 from '../assets/images/project-2.jpg'
+import Project3 from '../assets/images/project-3.jpg'
+import Project4 from '../assets/images/project-4.png'
+import Project5 from '../assets/images/project-5.png'
+import Project6 from '../assets/images/project-6.jpg'
+import Project7 from '../assets/images/project-7.jpg'
+import Project8 from '../assets/images/project-8.png'
+import Project9 from '../assets/images/project-9.jpg'
+import Project11 from '../assets/images/project-11.jpg'
+import Project12 from '../assets/images/project-12.png'
+import Project13 from '../assets/images/project-13.jpg'
+import Project14 from '../assets/images/project-14.png'
+import Project16 from '../assets/images/project-16.png'
+import Project17 from '../assets/images/project-17.jpg'
+import Project18 from '../assets/images/project-18.jpg'
+import Project19 from '../assets/images/project-19.jpg'
+import Project20 from '../assets/images/project-20.jpg'
+import Project21 from '../assets/images/project-21.jpg'
+import Project22 from '../assets/images/project-22.jpg'
+import Project23 from '../assets/images/project-23.jpg'
+import Project24 from '../assets/images/project-24.jpg'
+import Project25 from '../assets/images/project-25.jpg'
+import Slider from 'react-slick'
 
 const IndexPage = () => {
+
+  const slider = React.useRef(null)
+  const [clients, setClients] = React.useState(false)
+
+  // turn images into an array
+  const images = [
+    Project1,
+    Project2,
+    Project3,
+    Project4,
+    Project5,
+    Project6,
+    Project7,
+    Project8,
+    Project9,
+    Project11,
+    Project12,
+    Project13,
+    Project14,
+    Project16,
+    Project17,
+    Project18,
+    Project19,
+    Project20,
+    Project21,
+    Project22,
+    Project23,
+    Project24,
+    Project25
+  ]
+
+  // random sort the images
+  images.sort(() => Math.random() - 0.5)
+
+
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    fade: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 6000,
+  }
+
   return (
     <>
       <main className='main'>
         <h1>Jesse O'Brien</h1>
-        <section className='slider'>
-          <div className='slide'><img src={Project1} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project2} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project3} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project4} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project5} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project6} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project7} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project8} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project9} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project10} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project11} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project12} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project13} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project14} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project15} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project16} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project17} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project18} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project19} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project20} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project21} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project22} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project23} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project24} alt="Jesse O'Brien" /></div>
-          <div className='slide'><img src={Project25} alt="Jesse O'Brien" /></div>
+        <section className='slider' onClick={() => slider.current.slickNext()}>
+          <Slider ref={slider} {...settings}>
+            {images.map((image, index) => (
+              <div key={index} className='slide'><img src={image} alt="Jesse O'Brien" /></div>
+            ))}
+          </Slider>
         </section>
-        <ul>
+        <ul id="contact">
           <li><a href="mailto:jesse@jesseobrien.com.au">jesse@jesseobrien.com.au</a></li>
           <li><a href="tel+61 422 287 731">+61 422 287 731</a></li>
           <li><a href="https://instagram.com/jesselobrien">Instagram</a></li>
-          <li><button>Clients</button></li>
+          <li><button onClick={() => setClients(true)}>Clients</button></li>
         </ul>
-        <section className='clients'>
+        <section className={`clients${clients ? ' active' : ''}`} onClick={() => setClients(false)}>
           <ul>
             <li><strong>Fashion</strong></li>
             <li>Zara</li>
