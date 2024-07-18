@@ -1,0 +1,44 @@
+@mixin heading-h1($weight: 300) {
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: $weight;
+  letter-spacing: -0.5px;
+}
+
+@mixin heading-h2($weight: 300) {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: $weight;
+}
+
+@mixin heading-h3($weight: 300) {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: $weight;
+  letter-spacing: -0.5px;
+}
+
+@mixin heading-h4($weight: 300) {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: $weight;
+  letter-spacing: -0.5px;
+}
+
+@mixin paragraph-p1($weight: 300) {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: $weight;
+}
+
+@mixin paragraph-p2($weight: 300) {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: $weight;
+}
+
+@mixin paragraph-p3($weight: 300) {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: $weight;
+}

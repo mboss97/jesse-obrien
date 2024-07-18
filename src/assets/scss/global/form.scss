@@ -1,0 +1,83 @@
+form {
+  margin: 0 !important;
+
+  .form {
+    &--submit {
+      margin: 0;
+
+      button {
+        @include heading-h4(400);
+        background-color: transparent;
+        border: none;
+        display: flex;
+        gap: 10px;
+        padding: 0;
+        align-items: center;
+      }
+    }
+
+    &--row {
+      margin: 0 0 30px 0;
+
+      @include breakpoint(medium) {
+        margin: 0 0 50px 0;
+      }
+
+      &__double {
+        gap: 20px;
+
+        @include breakpoint(medium) {
+          display: flex;
+        }
+      }
+
+      &__item {
+        margin: 0 0 30px 0;
+
+        @include breakpoint(medium) {
+          margin: 0;
+        }
+      }
+
+      label {
+        @include heading-h4(400);
+        margin: 0 0 10px 0;
+        display: block;
+      }
+
+      input, textarea {
+        padding: 9px 28px;
+        background-color: $color--grey;
+        @include heading-h4(400);
+        border: none;
+        width: 100%;
+        border-radius: 10px;
+
+        @include breakpoint(medium) {
+          width: 444px;
+        }
+
+        &::placeholder {
+          color: $color--primary;
+          @include heading-h4(400);
+          opacity: 1;
+        }
+      }
+
+      &__textarea {
+        @include breakpoint(medium) {
+          margin: 0 0 35px 0;
+        }
+
+        textarea {
+          height: 120px;
+          width: 100%;
+
+          @include breakpoint(medium) {
+            width: 908px;
+          }
+        }
+      }
+    }
+  }
+}

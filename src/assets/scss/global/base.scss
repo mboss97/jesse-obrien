@@ -1,0 +1,46 @@
+::selection {
+  color: $color--secondary;
+  background: lighten($color--primary, 10%);
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  color: $color--primary;
+}
+
+main {
+  overflow: hidden;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font--primary;
+  font-weight: 300;
+  color: $color--primary;
+}
+
+p, ul, li, ol, div, table, button, input, select, textarea {
+  @include paragraph-p1(300);
+  font-family: $font--primary;
+}
+
+a {
+  font-family: $font--primary;
+  color: $color--primary;
+}
+
+.main {
+  max-width: 100%;
+  overflow: unset;
+
+  @include breakpoint(medium) {
+    //@include inner;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
