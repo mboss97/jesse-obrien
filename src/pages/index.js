@@ -71,6 +71,7 @@ const IndexPage = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 6000,
+    pauseOnHover: false,
   }
 
   return (
